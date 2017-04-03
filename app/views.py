@@ -29,6 +29,10 @@ def api():
     imgs={"error": err, "message": message, "thumbnails": thumbnails}
     print jsonify(imgs)
     return jsonify(imgs)
+    
+@app.route('/thumbnails/view')
+def api_view():
+    return render_template('api.html')
 
 ###
 # The functions below should be applicable to all Flask apps.

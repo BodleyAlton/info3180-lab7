@@ -5,3 +5,14 @@ body {
 .nav-tabs {
     margin-bottom: 15px;
 }
+
+img{
+    float:left;
+   position:block;
+    height:100px;
+    width:100px;
+    margin-bottom:10px;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+}

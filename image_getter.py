@@ -30,4 +30,5 @@ def image():
        print ''
        if img["src"] not in urls:
             urls.append(img['src'])
+            
     return urls
