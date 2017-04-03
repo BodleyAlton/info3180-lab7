@@ -10,16 +10,25 @@ from flask import render_template, request, redirect, url_for, jsonify
 from bs4 import BeautifulSoup
 import requests
 import urlparse
+from image_getter import image, result
 
 ###
 # Routing for your application.
 ###
-
 @app.route('/')
 def home():
     """Render website's home page."""
+    print "images"
     return render_template('home.html')
 
+@app.route('/api/thumbnails')
+def api():
+    err= None
+    message="success"
+    thumbnails=image()
+    imgs={"error": err, "message": message, "thumbnails": thumbnails}
+    print jsonify(imgs)
+    return jsonify(imgs)
 
 ###
 # The functions below should be applicable to all Flask apps.
@@ -47,7 +56,6 @@ def add_header(response):
 def page_not_found(error):
     """Custom 404 page."""
     return render_template('404.html'), 404
-
 
 if __name__ == '__main__':
     app.run(debug=True,host="0.0.0.0",port="8080")
